@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的插件 - 光伏专家系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="my-plugins-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-solar-panel"></i>
+                <h1>光伏专家系统</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">插件商店</a>
+                <a href="my-plugins.html" class="nav-link active">我的插件</a>
+                <a href="upload.html" class="nav-link">上传插件</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- 面包屑导航 -->
+            <nav class="breadcrumb">
+                <a href="index.html" class="breadcrumb-item">
+                    <i class="fas fa-home"></i>
+                    插件商店
+                </a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="breadcrumb-item active">我的插件</span>
+            </nav>
+
+            <!-- 页面标题和操作按钮 -->
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>我的插件</h1>
+                    <p>管理您已安装的插件和上传的插件</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-secondary" onclick="refreshPlugins()">
+                        <i class="fas fa-sync-alt"></i>
+                        刷新
+                    </button>
+                </div>
+            </div>
+
+            <!-- 统计卡片 -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="installedCount">12</div>
+                            <div class="stat-label">已安装</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="uploadedCount">3</div>
+                            <div class="stat-label">已上传</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="favoriteCount">5</div>
+                            <div class="stat-label">收藏</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="updateCount">2</div>
+                            <div class="stat-label">可更新</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 标签页导航 -->
+            <section class="tabs-section">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="installed">
+                        <i class="fas fa-download"></i>
+                        已安装
+                    </button>
+                    <button class="tab-btn" data-tab="uploaded">
+                        <i class="fas fa-upload"></i>
+                        已上传
+                    </button>
+                    <button class="tab-btn" data-tab="favorites">
+                        <i class="fas fa-heart"></i>
+                        收藏夹
+                    </button>
+                    <button class="tab-btn" data-tab="updates">
+                        <i class="fas fa-sync-alt"></i>
+                        更新
+                    </button>
+                </div>
+            </section>
+
+            <!-- 插件列表区域 -->
+            <section class="plugins-section">
+                <!-- 已安装插件 -->
+                <div class="tab-content active" id="installed-tab">
+                    <div class="plugins-grid" id="installedPluginsGrid">
+                        <!-- 已安装插件将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+
+                <!-- 已上传插件 -->
+                <div class="tab-content" id="uploaded-tab">
+                    <div class="plugins-grid" id="uploadedPluginsGrid">
+                        <!-- 已上传插件将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+
+                <!-- 收藏夹 -->
+                <div class="tab-content" id="favorites-tab">
+                    <div class="plugins-grid" id="favoritesPluginsGrid">
+                        <!-- 收藏插件将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+
+                <!-- 更新 -->
+                <div class="tab-content" id="updates-tab">
+                    <div class="plugins-grid" id="updatesPluginsGrid">
+                        <!-- 可更新插件将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 空状态提示 -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3>暂无插件</h3>
+                <p>您还没有安装任何插件，快去插件商店看看吧！</p>
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-store"></i>
+                    浏览插件商店
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 插件详情模态框 -->
+    <div id="pluginDetailModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="modalPluginTitle">插件详情</h2>
+                <button class="close-btn" onclick="hidePluginDetailModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="plugin-detail-info">
+                    <div class="detail-row">
+                        <span class="detail-label">版本:</span>
+                        <span class="detail-value" id="modalPluginVersion">v1.0.0</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">作者:</span>
+                        <span class="detail-value" id="modalPluginAuthor">作者名称</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">分类:</span>
+                        <span class="detail-value" id="modalPluginCategory">数据分析</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">安装时间:</span>
+                        <span class="detail-value" id="modalPluginInstallDate">2024-01-15</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">文件大小:</span>
+                        <span class="detail-value" id="modalPluginSize">2.5 MB</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">许可证:</span>
+                        <span class="detail-value" id="modalPluginLicense">MIT License</span>
+                    </div>
+                </div>
+                <div class="plugin-actions">
+                    <button class="btn btn-primary" onclick="updatePlugin()">
+                        <i class="fas fa-sync-alt"></i>
+                        检查更新
+                    </button>
+                    <button class="btn btn-secondary" onclick="uninstallPlugin()">
+                        <i class="fas fa-trash"></i>
+                        卸载
+                    </button>
+                    <button class="btn btn-secondary" onclick="toggleFavorite()">
+                        <i class="fas fa-heart" id="modalFavoriteIcon"></i>
+                        <span id="modalFavoriteText">收藏</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="my-plugins-script.js"></script>
+</body>
+</html>

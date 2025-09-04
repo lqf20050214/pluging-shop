@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插件详情 - 光伏专家系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detail-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-solar-panel"></i>
+                <h1>光伏专家系统</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">插件商店</a>
+                <a href="my-plugins.html" class="nav-link">我的插件</a>
+                <a href="upload.html" class="nav-link">上传插件</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- 面包屑导航 -->
+            <nav class="breadcrumb">
+                <a href="index.html" class="breadcrumb-item">
+                    <i class="fas fa-home"></i>
+                    插件商店
+                </a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="breadcrumb-item active">插件详情</span>
+            </nav>
+
+            <!-- 插件详情区域 -->
+            <div class="plugin-detail-container">
+                <!-- 插件基本信息 -->
+                <section class="plugin-info-section">
+                    <div class="plugin-header">
+                        <div class="plugin-title-area">
+                            <h1 class="plugin-title" id="pluginTitle">光伏阵列性能分析器</h1>
+                            <div class="plugin-meta">
+                                <span class="plugin-author" id="pluginAuthor">光伏科技团队</span>
+                                <span class="plugin-version" id="pluginVersion">v2.1.0</span>
+                                <span class="plugin-category" id="pluginCategory">数据分析</span>
+                            </div>
+                        </div>
+                        <div class="plugin-actions">
+                            <button class="btn btn-primary btn-large" onclick="installPlugin()">
+                                <i class="fas fa-download"></i>
+                                安装插件
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="toggleFavorite()">
+                                <i class="fas fa-heart" id="favoriteIcon"></i>
+                                <span id="favoriteText">收藏</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="plugin-stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="downloadCount">8,547</div>
+                                <div class="stat-label">下载量</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="ratingValue">4.8</div>
+                                <div class="stat-label">评分</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="reviewCount">156</div>
+                                <div class="stat-label">评论数</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="updateDate">2024-01-15</div>
+                                <div class="stat-label">更新日期</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 插件详细信息和评论 -->
+                <div class="detail-content">
+                    <div class="detail-main">
+                        <!-- 插件描述 -->
+                        <section class="detail-section">
+                            <h2 class="section-title">插件描述</h2>
+                            <div class="section-content">
+                                <p id="pluginDescription">
+                                    基于机器学习的阵列性能分析工具，提供详细的效率报告和优化建议。该插件能够实时监控光伏阵列的运行状态，分析发电效率，识别性能瓶颈，并提供针对性的优化方案。
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- 功能特性 -->
+                        <section class="detail-section">
+                            <h2 class="section-title">功能特性</h2>
+                            <div class="section-content">
+                                <ul class="feature-list" id="featureList">
+                                    <li><i class="fas fa-check"></i> 实时性能监控和分析</li>
+                                    <li><i class="fas fa-check"></i> 智能故障检测和预警</li>
+                                    <li><i class="fas fa-check"></i> 效率优化建议</li>
+                                    <li><i class="fas fa-check"></i> 详细的数据报告</li>
+                                    <li><i class="fas fa-check"></i> 多维度性能评估</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- 技术规格 -->
+                        <section class="detail-section">
+                            <h2 class="section-title">技术规格</h2>
+                            <div class="section-content">
+                                <div class="specs-grid">
+                                    <div class="spec-item">
+                                        <span class="spec-label">兼容版本</span>
+                                        <span class="spec-value">v1.0.0 及以上</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">文件大小</span>
+                                        <span class="spec-value">2.5 MB</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">许可证</span>
+                                        <span class="spec-value">MIT License</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">编程语言</span>
+                                        <span class="spec-value">Python 3.8+</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">依赖项</span>
+                                        <span class="spec-value">numpy, pandas, scikit-learn</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">更新时间</span>
+                                        <span class="spec-value">2024-01-15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 更新日志 -->
+                        <section class="detail-section">
+                            <h2 class="section-title">更新日志</h2>
+                            <div class="section-content">
+                                <div class="changelog">
+                                    <div class="changelog-item">
+                                        <div class="changelog-version">v2.1.0 (2024-01-15)</div>
+                                        <ul class="changelog-list">
+                                            <li>新增机器学习算法支持</li>
+                                            <li>优化数据处理性能</li>
+                                            <li>修复已知bug</li>
+                                        </ul>
+                                    </div>
+                                    <div class="changelog-item">
+                                        <div class="changelog-version">v2.0.0 (2023-12-01)</div>
+                                        <ul class="changelog-list">
+                                            <li>全新UI界面设计</li>
+                                            <li>增加实时监控功能</li>
+                                            <li>支持多语言</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 用户评论 -->
+                        <section class="detail-section">
+                            <h2 class="section-title">用户评论</h2>
+                            <div class="section-content">
+                                <!-- 评论统计 -->
+                                <div class="reviews-summary">
+                                    <div class="rating-overview">
+                                        <div class="overall-rating">
+                                            <span class="rating-number" id="overallRating">4.8</span>
+                                            <div class="rating-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                            <span class="total-reviews">共 156 条评论</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" onclick="showReviewForm()">
+                                        <i class="fas fa-plus"></i>
+                                        写评论
+                                    </button>
+                                </div>
+
+                                <!-- 评论列表 -->
+                                <div class="reviews-list" id="reviewsList">
+                                    <!-- 评论将通过JavaScript动态生成 -->
+                                </div>
+
+                                <!-- 加载更多评论 -->
+                                <div class="load-more-reviews">
+                                    <button class="btn btn-secondary" onclick="loadMoreReviews()">
+                                        <i class="fas fa-plus"></i>
+                                        加载更多评论
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- 侧边栏 -->
+                    <aside class="detail-sidebar">
+                        <!-- 相关插件 -->
+                        <section class="sidebar-section">
+                            <h3 class="sidebar-title">相关插件</h3>
+                            <div class="related-plugins" id="relatedPlugins">
+                                <!-- 相关插件将通过JavaScript动态生成 -->
+                            </div>
+                        </section>
+
+                        <!-- 插件标签 -->
+                        <section class="sidebar-section">
+                            <h3 class="sidebar-title">插件标签</h3>
+                            <div class="plugin-tags" id="pluginTags">
+                                <!-- 标签将通过JavaScript动态生成 -->
+                            </div>
+                        </section>
+
+                        <!-- 下载信息 -->
+                        <section class="sidebar-section">
+                            <h3 class="sidebar-title">下载信息</h3>
+                            <div class="download-info">
+                                <div class="info-item">
+                                    <span class="info-label">文件大小</span>
+                                    <span class="info-value">2.5 MB</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">下载次数</span>
+                                    <span class="info-value">8,547</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">最后更新</span>
+                                    <span class="info-value">2024-01-15</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">许可证</span>
+                                    <span class="info-value">MIT</span>
+                                </div>
+                            </div>
+                        </section>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 评论表单模态框 -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>写评论</h2>
+                <button class="close-btn" onclick="hideReviewForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="reviewForm" class="review-form">
+                    <div class="form-group">
+                        <label>评分</label>
+                        <div class="rating-input">
+                            <i class="fas fa-star" data-rating="1"></i>
+                            <i class="fas fa-star" data-rating="2"></i>
+                            <i class="fas fa-star" data-rating="3"></i>
+                            <i class="fas fa-star" data-rating="4"></i>
+                            <i class="fas fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewTitle">评论标题</label>
+                        <input type="text" id="reviewTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewContent">评论内容</label>
+                        <textarea id="reviewContent" rows="5" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="hideReviewForm()">取消</button>
+                        <button type="submit" class="btn btn-primary">提交评论</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="detail-script.js"></script>
+</body>
+</html>

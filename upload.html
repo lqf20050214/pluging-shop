@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传插件 - 光伏专家系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="upload-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-solar-panel"></i>
+                <h1>光伏专家系统</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">插件商店</a>
+                <a href="my-plugins.html" class="nav-link">我的插件</a>
+                <a href="upload.html" class="nav-link active">上传插件</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- 面包屑导航 -->
+            <nav class="breadcrumb">
+                <a href="index.html" class="breadcrumb-item">
+                    <i class="fas fa-home"></i>
+                    插件商店
+                </a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="breadcrumb-item active">上传插件</span>
+            </nav>
+
+            <!-- 页面标题 -->
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>上传插件</h1>
+                    <p>分享您的插件作品，为光伏专家系统贡献力量</p>
+                </div>
+            </div>
+
+            <!-- 上传指南 -->
+            <section class="upload-guide">
+                <div class="guide-header">
+                    <h2><i class="fas fa-lightbulb"></i> 上传指南</h2>
+                    <p>请仔细阅读以下指南，确保您的插件能够顺利通过审核</p>
+                </div>
+                <div class="guide-content">
+                    <div class="guide-item">
+                        <div class="guide-icon">
+                            <i class="fas fa-file-archive"></i>
+                        </div>
+                        <div class="guide-text">
+                            <h3>文件格式</h3>
+                            <p>支持 .zip 和 .tar.gz 格式，文件大小不超过 50MB</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="guide-text">
+                            <h3>代码规范</h3>
+                            <p>请确保代码结构清晰，包含必要的文档和说明</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="guide-text">
+                            <h3>安全要求</h3>
+                            <p>插件不得包含恶意代码，需通过安全检查</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="guide-text">
+                            <h3>审核流程</h3>
+                            <p>上传后将在 1-3 个工作日内完成审核</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 上传表单 -->
+            <section class="upload-form-section">
+                <div class="upload-form-container">
+                    <h2><i class="fas fa-upload"></i> 插件信息</h2>
+                    <form id="uploadForm" class="upload-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pluginName">插件名称 *</label>
+                                <input type="text" id="pluginName" required placeholder="请输入插件名称">
+                                <small>建议使用简洁明了的名称，便于用户理解</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="pluginVersion">版本号 *</label>
+                                <input type="text" id="pluginVersion" required placeholder="1.0.0">
+                                <small>遵循语义化版本规范 (如: 1.0.0)</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pluginDescription">插件描述 *</label>
+                            <textarea id="pluginDescription" rows="4" required placeholder="请详细描述插件的功能、特性和使用场景"></textarea>
+                            <small>详细描述有助于用户了解您的插件</small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pluginCategory">分类 *</label>
+                                <select id="pluginCategory" required>
+                                    <option value="">选择分类</option>
+                                    <option value="data-analysis">数据分析</option>
+                                    <option value="optimization">优化算法</option>
+                                    <option value="monitoring">监控系统</option>
+                                    <option value="prediction">预测模型</option>
+                                    <option value="visualization">可视化</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pluginLicense">许可证 *</label>
+                                <select id="pluginLicense" required>
+                                    <option value="">选择许可证</option>
+                                    <option value="MIT">MIT License</option>
+                                    <option value="Apache">Apache License 2.0</option>
+                                    <option value="GPL">GPL v3</option>
+                                    <option value="BSD">BSD License</option>
+                                    <option value="Custom">自定义许可证</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pluginVisibility">可见性 *</label>
+                                <select id="pluginVisibility" required>
+                                    <option value="">选择可见性</option>
+                                    <option value="public">公开</option>
+                                    <option value="private">私人</option>
+                                </select>
+                                <small>公开插件所有人都能看到，私人插件只有您能看到</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="pluginAuthor">作者 *</label>
+                                <input type="text" id="pluginAuthor" required placeholder="请输入作者姓名或团队名称">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pluginEmail">联系邮箱</label>
+                            <input type="email" id="pluginEmail" placeholder="用于接收审核通知">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pluginTags">标签</label>
+                            <input type="text" id="pluginTags" placeholder="用逗号分隔多个标签，如: 光伏,数据分析,机器学习">
+                            <small>标签有助于用户搜索和发现您的插件</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pluginFile">插件文件 *</label>
+                            <div class="file-upload-area" id="fileUploadArea">
+                                <div class="file-upload-content">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <h3>拖拽文件到此处或点击选择</h3>
+                                    <p>支持 .zip 和 .tar.gz 格式，最大 50MB</p>
+                                    <input type="file" id="pluginFile" accept=".zip,.tar.gz" required>
+                                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('pluginFile').click()">
+                                        选择文件
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="file-info" id="fileInfo" style="display: none;">
+                                <div class="file-details">
+                                    <i class="fas fa-file-archive"></i>
+                                    <span id="fileName">文件名</span>
+                                    <span id="fileSize">文件大小</span>
+                                </div>
+                                <button type="button" class="btn btn-small btn-secondary" onclick="removeFile()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pluginReadme">README 内容</label>
+                            <textarea id="pluginReadme" rows="6" placeholder="请提供插件的使用说明、安装方法和示例代码"></textarea>
+                            <small>详细的说明文档有助于用户正确使用您的插件</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pluginWebsite">项目网站</label>
+                            <input type="url" id="pluginWebsite" placeholder="https://github.com/your-repo">
+                            <small>可选，指向插件的项目主页或文档</small>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                                <i class="fas fa-undo"></i>
+                                重置表单
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-upload"></i>
+                                上传插件
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 上传历史 -->
+            <section class="upload-history">
+                <h2><i class="fas fa-history"></i> 上传历史</h2>
+                <div class="history-list" id="uploadHistory">
+                    <!-- 上传历史将通过JavaScript动态生成 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 上传进度模态框 -->
+    <div id="uploadProgressModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>正在上传插件</h2>
+            </div>
+            <div class="modal-body">
+                <div class="upload-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">准备上传...</div>
+                </div>
+                <div class="upload-steps">
+                    <div class="step active" id="step1">
+                        <i class="fas fa-check"></i>
+                        <span>文件验证</span>
+                    </div>
+                    <div class="step" id="step2">
+                        <i class="fas fa-spinner"></i>
+                        <span>上传文件</span>
+                    </div>
+                    <div class="step" id="step3">
+                        <i class="fas fa-cog"></i>
+                        <span>处理中</span>
+                    </div>
+                    <div class="step" id="step4">
+                        <i class="fas fa-check"></i>
+                        <span>完成</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="upload-script.js"></script>
+</body>
+</html>
