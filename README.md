@@ -58,10 +58,8 @@
 
 ### 在线访问
 项目已部署到GitHub Pages，可通过以下链接访问：
-- **插件商店**: https://[your-username].github.io/[repo-name]/
-- **插件详情**: https://[your-username].github.io/[repo-name]/detail.html
-- **我的插件**: https://[your-username].github.io/[repo-name]/my-plugins.html
-- **插件上传**: https://[your-username].github.io/[repo-name]/upload.html
+https://lqf20050214.github.io/pluging-shop/
+
 
 ## 📖 使用指南
 
@@ -119,15 +117,13 @@
 
 欢迎提交Issue和Pull Request来改进项目！
 
-## 📄 许可证
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
 ## 📞 联系方式
 
 如有问题或建议，请通过以下方式联系：
-- 邮箱: [your-email@example.com]
-- GitHub: [your-github-username]
+- 邮箱: [35963165@qq.com]
+- GitHub: [LQF20050214]
 
 ---
 
